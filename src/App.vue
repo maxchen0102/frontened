@@ -41,6 +41,7 @@
 
   <P>我是整個網站的模板componnet</P>
   <P>我是整個網站的模板componnet</P>
+  <P>我是整個網站的模板componnet</P>
   <img alt="Vue logo" src="./assets/logo.png" />
 </template>
 
