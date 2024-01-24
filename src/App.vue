@@ -57,7 +57,8 @@ export default {
     const api = "https://vue-course-api.hexschool.io/api/storegg/products";
     this.$http.get(api).then((response) => {
       console.log(response.data);
-      console.log(process.env.APIPATH);
+      console.log("ok");
+      console.log(process.env.VUE_APP_APIPATH);
     });
   },
 };
