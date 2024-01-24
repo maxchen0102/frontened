@@ -38,6 +38,7 @@
 
   <br />
   <br />
+  <button type="button" class="btn btn-primary">Primary</button>
 
   <P>我是整個網站的模板componnet</P>
   <P>我是整個網站的模板componnet</P>
@@ -51,6 +52,13 @@ export default {
   name: "App",
   components: {
     //HelloWorld
+  },
+  created() {
+    const api = "https://vue-course-api.hexschool.io/api/storegg/products";
+    this.$http.get(api).then((response) => {
+      console.log(response.data);
+      console.log(process.env.APIPATH);
+    });
   },
 };
 </script>
