@@ -35,14 +35,14 @@
   <router-view name="menu"></router-view>
   <br />
   <br />
-
   <br />
   <br />
   <button type="button" class="btn btn-primary">Primary</button>
 
   <P>我是整個網站的模板componnet</P>
   <P>我是整個網站的模板componnet</P>
-  <P>我是整個網站的模板componnet</P>
+
+  {{ path }}
   <img alt="Vue logo" src="./assets/logo.png" />
 </template>
 
@@ -53,6 +53,12 @@ export default {
   components: {
     //HelloWorld
   },
+  data() {
+    return {
+      path: process.env.VUE_APP_APIPATH,
+    };
+  },
+
   created() {
     const api = "https://vue-course-api.hexschool.io/api/storegg/products";
     this.$http.get(api).then((response) => {
