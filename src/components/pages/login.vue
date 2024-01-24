@@ -1,42 +1,52 @@
 <template>
-  <div>
-    <form class="form-signin" @submit.prevent="signin">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      <div class="form-floating">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-          v-model="user.username"
-        />
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input
-          type="password"
-          class="form-control"
-          id="floatingPassword"
-          placeholder="Password"
-          v-model="user.usernpassword"
-        />
-        <label for="floatingPassword">Password</label>
-      </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <div>
+          <form class="form-signin" @submit.prevent="signin">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <div class="form-floating">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+                v-model="user.username"
+              />
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+                v-model="user.usernpassword"
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
 
-      <div class="form-check text-start my-3">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="remember-me"
-          id="flexCheckDefault"
-        />
-        <label class="form-check-label" for="flexCheckDefault">
-          Remember me
-        </label>
+            <div class="form-check text-start my-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="remember-me"
+                id="flexCheckDefault"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Remember me
+              </label>
+            </div>
+            <button class="btn btn-primary w-100 py-2" type="submit">
+              Sign in
+            </button>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+          </form>
+        </div>
       </div>
-      <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
-    </form>
+      <div class="col-4"></div>
+    </div>
   </div>
 </template>
 
@@ -56,8 +66,10 @@ export default {
   },
   methods: {
     signin() {
-      const api = "https://vue-course-api.hexschool.io/api/storegg/products";
-      this.$http.get(api).then((response) => {
+      const api = "https://vue-course-api.hexschool.io/singin";
+      //const api = "https://vue-course-api.hexschool.io/api/storegg/products";
+      const vm = this;
+      this.$http.post(api, vm.user).then((response) => {
         console.log(response.data);
       });
     },

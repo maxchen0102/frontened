@@ -1,7 +1,8 @@
 //像個路由器
 
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/components/HelloWorld";
+//import Home from "@/components/HelloWorld";
+import Home from "@/components/pages/home";
 import Page from "@/components/pages/page";
 import child1 from "@/components/pages/child1";
 import child2 from "@/components/pages/child2";

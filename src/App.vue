@@ -33,10 +33,7 @@
   <!--component render place -->
   <router-view></router-view>
   <router-view name="menu"></router-view>
-  <br />
-  <br />
-  <br />
-  <br />
+
   <button type="button" class="btn btn-primary">Primary</button>
 
   <P>我是整個網站的模板componnet</P>
@@ -60,11 +57,12 @@ export default {
   },
 
   created() {
+    //const api = `${process.env.VUE_APP_APIPATH}/api/storegg/products`;
     const api = "https://vue-course-api.hexschool.io/api/storegg/products";
     this.$http.get(api).then((response) => {
       console.log(response.data);
       console.log("ok");
-      console.log(process.env.VUE_APP_APIPATH);
+      console.log(process.env.VUE_APP_APIPATH, process.env.VUE_APP_CUSTOMPATH);
     });
   },
 };
