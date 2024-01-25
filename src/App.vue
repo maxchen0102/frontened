@@ -38,12 +38,15 @@
 
   <P>我是整個網站的模板componnet</P>
   <P>我是整個網站的模板componnet</P>
-  <login />
-  這是外層訊息 {{ msg }}
-  <com :message="msg" />
 
-  <com_2 />
-  {{ path }}
+  這是外層訊息 {{ books }}
+  <com v-for="book in books" :bookinfo="book" />
+
+  <ul v-for="book in books" class="book">
+    <li>{{ book.name }}</li>
+    <li>{{ book.author }}</li>
+    <li>{{ book.id }}</li>
+  </ul>
   <img alt="Vue logo" src="./assets/logo.png" />
 </template>
 
@@ -65,6 +68,18 @@ export default {
     return {
       path: process.env.VUE_APP_APIPATH,
       msg: "gg",
+      books: [
+        {
+          name: "chris",
+          author: "max",
+          id: 12,
+        },
+        {
+          name: "teani",
+          author: "wnag",
+          id: 2,
+        },
+      ],
     };
   },
 
