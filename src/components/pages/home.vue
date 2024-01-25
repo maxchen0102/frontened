@@ -10,6 +10,7 @@
             </li>
             <li class="page-item" v-for="page in pages">
               <a class="page-link" href> {{ page }}</a>
+              <a class="page-link" href> {{ page }}</a>
             </li>
 
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
