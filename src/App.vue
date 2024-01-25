@@ -29,7 +29,7 @@
       </div>
     </div>
   </nav>
-
+  <P>我是整個網站的模板componnet</P>
   <!--component render place -->
   <router-view></router-view>
   <router-view name="menu"></router-view>
