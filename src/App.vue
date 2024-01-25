@@ -38,21 +38,33 @@
 
   <P>我是整個網站的模板componnet</P>
   <P>我是整個網站的模板componnet</P>
+  <login />
+  這是外層訊息 {{ msg }}
+  <com :message="msg" />
 
+  <com_2 />
   {{ path }}
   <img alt="Vue logo" src="./assets/logo.png" />
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
+import login from "@/components/pages/login.vue";
+import com from "@/components/pages/com.vue";
+import com_2 from "@/components/pages/com_2.vue";
+
 export default {
   name: "App",
   components: {
     //HelloWorld
+    login,
+    com,
+    com_2,
   },
   data() {
     return {
       path: process.env.VUE_APP_APIPATH,
+      msg: "gg",
     };
   },
 
