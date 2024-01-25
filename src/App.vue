@@ -33,7 +33,7 @@
   <!--component render place -->
   <router-view></router-view>
   <router-view name="menu"></router-view>
-
+  <P>我是整個網站的模板componnet</P>
   <button type="button" class="btn btn-primary">Primary</button>
 
   <P>我是整個網站的模板componnet</P>
