@@ -38,10 +38,10 @@
 
   <P>我是整個網站的模板componnet</P>
   <P>我是整個網站的模板componnet</P>
+  <P>我是整個網站的模板componnet</P>
 
   這是外層訊息 {{ books }}
   <com v-for="book in books" :bookinfo="book" />
-
   <ul v-for="book in books" class="book">
     <li>{{ book.name }}</li>
     <li>{{ book.author }}</li>
