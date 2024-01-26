@@ -67,7 +67,6 @@ export default {
   methods: {
     signin() {
       const api = "https://vue-course-api.hexschool.io/singin";
-      //const api = "https://vue-course-api.hexschool.io/api/storegg/products";
       const vm = this;
       this.$http.post(api, vm.user).then((response) => {
         console.log(response.data);
