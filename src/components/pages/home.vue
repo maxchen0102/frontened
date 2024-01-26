@@ -1,4 +1,5 @@
 <template>
+  <a href="#" @click.prevent="signout">登出</a>
   <div class="contianer">
     <div class="row">
       <div class="col-4"></div>
@@ -9,7 +10,6 @@
               <a class="page-link" href="#">Previous</a>
             </li>
             <li class="page-item" v-for="page in pages">
-              <a class="page-link" href> {{ page }}</a>
               <a class="page-link" href> {{ page }}</a>
             </li>
 
@@ -45,6 +45,16 @@ export default {
   methods: {
     plus: function () {
       this.count += 1;
+    },
+    signout() {
+      const api = "https://vue-course-api.hexschool.io/logout";
+      const vm = this;
+      this.$http.post(api).then((response) => {
+        console.log(response.data);
+        if (response.data.success) {
+          vm.$router.push("/login");
+        }
+      });
     },
   },
 };

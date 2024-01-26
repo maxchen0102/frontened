@@ -1,6 +1,13 @@
 <template>
   <!--component render place -->
   <router-view></router-view>
+  <div class="container">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4"></div>
+      <div class="col-4"></div>
+    </div>
+  </div>
   <router-view name="menu"></router-view>
   <P>我是整個網站的模板componnet</P>
   <button type="button" class="btn btn-primary">Primary</button>

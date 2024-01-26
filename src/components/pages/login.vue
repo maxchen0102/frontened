@@ -14,7 +14,7 @@
                 placeholder="name@example.com"
                 v-model="user.username"
               />
-              <label for="floatingInput">Email address</label>
+              <label for="floatingInput">電子信箱</label>
             </div>
             <div class="form-floating">
               <input
@@ -22,7 +22,7 @@
                 class="form-control"
                 id="floatingPassword"
                 placeholder="Password"
-                v-model="user.usernpassword"
+                v-model="user.password"
               />
               <label for="floatingPassword">Password</label>
             </div>
@@ -66,10 +66,13 @@ export default {
   },
   methods: {
     signin() {
-      const api = "https://vue-course-api.hexschool.io/singin";
+      const api = "https://vue-course-api.hexschool.io/signin";
       const vm = this;
       this.$http.post(api, vm.user).then((response) => {
         console.log(response.data);
+        if (response.data.success) {
+          vm.$router.push("/index");
+        }
       });
     },
   },
