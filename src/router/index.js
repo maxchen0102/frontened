@@ -14,9 +14,14 @@ import Products from "@/components/pages/products";
 
 const routes = [
   {
+    paht: "*",
+    redirect: "login",
+  },
+  {
     name: "首頁",
     path: "/index",
     component: Home,
+    meta: { requiresAuth: true },
   },
   {
     name: "Dsahboard",
@@ -63,10 +68,10 @@ const routes = [
   },
 ];
 
-const router1 = createRouter({
+const router = createRouter({
   linkActiveClass: "active",
   history: createWebHistory(),
   routes,
 });
 
-export default router1;
+export default router;
