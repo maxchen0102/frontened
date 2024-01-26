@@ -1,9 +1,10 @@
 <template>
-  <a href="#" @click.prevent="signout">登出</a>
   <div class="contianer">
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4">
+        <h1>這是首頁</h1>
+        <a href="#" @click.prevent="signout">登出</a>
         <nav aria-label="Page navigation example">
           <ul class="pagination">
             <li class="page-item">
