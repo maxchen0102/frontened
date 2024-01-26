@@ -9,12 +9,26 @@ import child2 from "@/components/pages/child2";
 import Menu from "@/components/pages/menu";
 import Jobs from "@/components/jobs/jobs";
 import Login from "@/components/pages/login";
+import Dashboard from "@/components/DashBoard";
+import Products from "@/components/pages/products";
 
 const routes = [
   {
     name: "首頁",
     path: "/index",
     component: Home,
+  },
+  {
+    name: "Dsahboard",
+    path: "/admin",
+    component: Dashboard,
+    children: [
+      {
+        name: "products",
+        path: "products",
+        component: Products,
+      },
+    ],
   },
   {
     path: "/login",
