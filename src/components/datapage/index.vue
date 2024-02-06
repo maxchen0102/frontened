@@ -6,8 +6,15 @@
     <li v-for="item in arr">{{ item }}</li>
   </ul>
   外層訊息{{ msg }}
-
-  <innerpage v-model:innerMsg="msg"></innerpage>
+  <br />
+  ===========================================================
+  <br />
+  {{ msg2 }}
+  <innerpage> {{ msg2 }} </innerpage>
+  <innerpage>
+    <template v-slot:a> I am injected content </template>
+  </innerpage>
+  <template> I am injected content </template>
 </template>
 
 <script>
@@ -32,6 +39,7 @@ export default {
       flag: true,
       arr: ["chris", "max", "bob"],
       msg: "hello",
+      msg2: "Parent !",
       books: [
         {
           id: 123,

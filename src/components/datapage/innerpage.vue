@@ -1,18 +1,15 @@
 <template>
   <h1>inner</h1>
-  內層訊息{{ innerMsg }} <br />
-  內層 {{ innerArr }} <br />
-  <ul v-for="book in innerBooks">
-    <li>id = {{ book.id }}</li>
-    <li>name={{ book.name }}</li>
-    <li>author={{ book.author }}</li>
-  </ul>
 
-  <input
-    :value="innerMsg"
-    @input="$emit('update:innerMsg', $event.target.value)"
-  />
-  <deeppage></deeppage>
+  {{ msg2 }}
+  <br />
+  <slot></slot>
+  <h3>=====</h3>
+  <slot name="a">這是預設內容</slot>
+  <h3>=====</h3>
+  <slot name="b">這是預設內容</slot>
+
+  <slot name="test"> Fallback content </slot>
 </template>
 
 <script>
@@ -29,7 +26,9 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      msg2: "child!",
+    };
   },
   methods: {},
 };
