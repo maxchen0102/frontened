@@ -37,11 +37,6 @@ const routes = [
     name: "Login",
     component: Login,
   },
-  {
-    name: "jobs",
-    path: "/jobs",
-    component: Jobs,
-  },
 ];
 
 const router = createRouter({

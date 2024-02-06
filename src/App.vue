@@ -2,6 +2,7 @@
   <Navbar></Navbar>
   <Card></Card>
   <!--component render place -->
+  <h5>以下為main router view</h5>
   <router-view></router-view>
   <div class="container">
     <div class="row">
@@ -13,8 +14,6 @@
       <div class="col-4"></div>
     </div>
   </div>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <P>我是APP.vue模板componnet</P>
 </template>
 
 <script>

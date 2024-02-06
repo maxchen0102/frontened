@@ -4,20 +4,6 @@
       <div class="col-4"></div>
       <div class="col-4">
         <h1>這是首頁</h1>
-
-        <a href="#" @click.prevent="signout">登出</a>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#">Previous</a>
-            </li>
-            <li class="page-item" v-for="page in pages">
-              <a class="page-link" href> {{ page }}</a>
-            </li>
-
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </nav>
       </div>
       <div class="col-4"></div>
     </div>
