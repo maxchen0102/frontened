@@ -6,7 +6,7 @@
         <div class="col-4"></div>
         <div class="col-4"></div>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <router-view></router-view>
+          <products></products>
         </main>
       </div>
     </div>
@@ -15,8 +15,10 @@
 
 <script>
 //import Sidebar from "./Sidebar.vue";
-
+import products from "./pages/products.vue";
 export default {
-  components: {},
+  components: {
+    products,
+  },
 };
 </script>

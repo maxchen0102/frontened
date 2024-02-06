@@ -21,10 +21,14 @@
               <router-link class="nav-link active" to="/home">home</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link active" to="/page">page</router-link>
+              <router-link class="nav-link active" to="/Dashboard"
+                >Dashboard</router-link
+              >
             </li>
             <li class="nav-item">
-              <router-link class="nav-link active" to="/jobs">jobs</router-link>
+              <router-link class="nav-link active" to="/router_test"
+                >router_test</router-link
+              >
             </li>
           </ul>
         </div>

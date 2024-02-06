@@ -19,10 +19,6 @@
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
-import login from "@/components/pages/login.vue";
-import com from "@/components/pages/com.vue";
-import com_2 from "@/components/pages/com_2.vue";
 import Navbar from "./components/Navbar.vue";
 
 import Banner from "./components/Banner.vue";
