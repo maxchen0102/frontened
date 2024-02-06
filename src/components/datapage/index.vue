@@ -62,5 +62,9 @@ export default {
       this.flag = !flag;
     },
   },
+  created(){
+
+  },
+
 };
 </script>
