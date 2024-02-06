@@ -1,12 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 //import Home from "@/components/HelloWorld";
-import Home from "@/components/pages/home";
+import Home from "@/components/homepage/home";
 
-import Dashboard from "@/components/DashBoard";
-import Products from "@/components/pages/products";
+import Dashboard from "@/components/productPage/Dashboard";
+import Products from "@/components/productPage/products";
 import routerTest from "@/components/pages/routerTest";
 import typeA from "@/components/pages/typeA";
 import typeB from "@/components/pages/typeB";
+import typeC from "@/components/pages/typeC";
+import index from "@/components/datapage";
 
 const routes = [
   {
@@ -36,6 +38,7 @@ const routes = [
     name: "router-test",
     path: "/router_test",
     component: routerTest,
+
     children: [
       {
         name: "typeA",
@@ -48,6 +51,13 @@ const routes = [
         component: typeB,
       },
     ],
+  },
+  {
+    name: "datapage",
+    path: "/datapage",
+    component: index,
+    meta: { requiresAuth: false },
+    children: [],
   },
 ];
 
