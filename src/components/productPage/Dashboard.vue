@@ -15,7 +15,7 @@
 
 <script>
 //import Sidebar from "./Sidebar.vue";
-import products from "./pages/products.vue";
+import products from "./products.vue";
 export default {
   components: {
     products,

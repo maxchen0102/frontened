@@ -30,6 +30,11 @@
                 >router_test</router-link
               >
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link active" to="/datapage"
+                >資料測試</router-link
+              >
+            </li>
           </ul>
         </div>
       </div>
