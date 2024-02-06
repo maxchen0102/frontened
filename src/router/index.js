@@ -4,21 +4,20 @@ import { createRouter, createWebHistory } from "vue-router";
 //import Home from "@/components/HelloWorld";
 import Home from "@/components/pages/home";
 
-import Jobs from "@/components/jobs/jobs";
-import Login from "@/components/pages/login";
 import Dashboard from "@/components/DashBoard";
 import Products from "@/components/pages/products";
 
 const routes = [
   {
     paht: "*",
-    redirect: "index",
+    redirect: "home",
   },
   {
     name: "首頁",
-    path: "/index",
+    path: "/home",
     component: Home,
     meta: { requiresAuth: false },
+    children: [],
   },
   {
     name: "Dsahboard",
@@ -31,11 +30,6 @@ const routes = [
         component: Products,
       },
     ],
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login,
   },
 ];
 
