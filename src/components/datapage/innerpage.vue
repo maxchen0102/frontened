@@ -12,10 +12,13 @@
     :value="innerMsg"
     @input="$emit('update:innerMsg', $event.target.value)"
   />
+  <deeppage></deeppage>
 </template>
 
 <script>
+import deeppage from "./deeppage.vue";
 export default {
+  components: { deeppage },
   props: {
     innerMsg: String,
     innerBooks: {

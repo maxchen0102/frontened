@@ -16,6 +16,13 @@ export default {
   components: {
     innerpage,
   },
+  provide() {
+    return {
+      provideMsg: this.msg,
+      //provideMsg2: computed(() => this.msg),
+    };
+  },
+
   data() {
     return {
       a: 1234,
