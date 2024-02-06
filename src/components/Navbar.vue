@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="home">首頁</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -18,9 +18,7 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <!---->
-              <router-link class="nav-link active" to="/index"
-                >home</router-link
-              >
+              <router-link class="nav-link active" to="/home">home</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link active" to="/page">page</router-link>

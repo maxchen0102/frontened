@@ -1,31 +1,30 @@
 <template>
-  <div class="contianer">
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-4">
-        <h1>這是首頁</h1>
-        <a href="#" @click.prevent="signout">登出</a>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#">Previous</a>
-            </li>
-            <li class="page-item" v-for="page in pages">
-              <a class="page-link" href> {{ page }}</a>
-            </li>
-
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </nav>
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <home_word></home_word>
       </div>
-      <div class="col-4"></div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <home_card></home_card>
+        </div>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
+import home_word from "./home_word.vue";
+import home_card from "./home_card.vue";
 export default {
   name: "home",
+  components: {
+    home_word,
+    home_card,
+  },
   props: {
     msg: String,
   },

@@ -1,18 +1,21 @@
 <template>
-  <!--component render place -->
-  <router-view></router-view>
+  <Navbar></Navbar>
+  <Card></Card>
   <div class="container">
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4">
-        <img alt="Vue logo" src="./assets/logo.png" />
-        <P>我是APP.vue模板componnet</P>
+        <Quote></Quote>
       </div>
       <div class="col-4"></div>
     </div>
   </div>
 
-  <router-view name="menu"></router-view>
+  <!--component render place -->
+  <h5>以下為main router view</h5>
+  <router-view></router-view>
+
+  <Footer></Footer>
 </template>
 
 <script>
@@ -20,14 +23,20 @@
 import login from "@/components/pages/login.vue";
 import com from "@/components/pages/com.vue";
 import com_2 from "@/components/pages/com_2.vue";
+import Navbar from "./components/Navbar.vue";
+
+import Banner from "./components/Banner.vue";
+import Quote from "./components/Quote.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     //HelloWorld
-    login,
-    com,
-    com_2,
+    Navbar,
+    Footer,
+    Banner,
+    Quote,
   },
   data() {
     return {
