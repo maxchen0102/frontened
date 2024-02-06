@@ -5,13 +5,9 @@
   <ul v-if="flag">
     <li v-for="item in arr">{{ item }}</li>
   </ul>
-  外層{{ msg }}
+  外層訊息{{ msg }}
 
-  <innerpage
-    v-bind:innerMsg="msg"
-    v-bind:innerArr="arr"
-    v-bind:innerBooks="books"
-  ></innerpage>
+  <innerpage v-model:innerMsg="msg"></innerpage>
 </template>
 
 <script>
