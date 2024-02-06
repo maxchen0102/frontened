@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 //import Home from "@/components/HelloWorld";
-import Home from "@/components/pages/home";
+import Home from "@/components/homepage/home";
 
 import Dashboard from "@/components/DashBoard";
 import Products from "@/components/pages/products";
