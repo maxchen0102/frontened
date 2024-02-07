@@ -16,9 +16,26 @@
 <script>
 //import Sidebar from "./Sidebar.vue";
 import products from "./products.vue";
+import axios from 'axios';
+
 export default {
   components: {
     products,
   },
+  methods:{
+    getTest() {
+      const apiPath="http://localhost:3001/api/test";
+      const apiPath2="https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"; // NASA 
+      axios.get(apiPath2).then((res)=>{
+        console.log(res);
+        console.log(res.data);
+        console.log(res.data.date);
+      })
+    },
+  },
+  created(
+  ){
+    this.getTest();
+  }
 };
 </script>

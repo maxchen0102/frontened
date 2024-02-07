@@ -7,7 +7,7 @@ import "bootstrap";
 
 const app = createApp(App);
 app.use(VueAxios, axios);
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 
 app.use(router); // 不同的可以使用不同的路由器
 app.mount("#app");
