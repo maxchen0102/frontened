@@ -1,35 +1,40 @@
 <template>
-  <h1>inner</h1>
 
-  {{ msg2 }}
-  <br />
-  <slot></slot>
-  <h3>=====</h3>
-  <slot name="a">這是預設內容</slot>
-  <h3>=====</h3>
-  <slot name="b">這是預設內容</slot>
 
-  <slot name="test"> Fallback content </slot>
+<div class="card" style="width: 18rem;">
+  
+  <div class="card-body">
+    <h5 class="card-title">{{ innercount }}</h5>
+    <h5 class="card-title">{{ innertext }}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <RouterLink to="/home">go to home</RouterLink>
+    <button @click="emittext">emit</button>
+  </div>
+</div>
+
+<ul>
+  <li v-for="item in innerdata" :key="item.id">{{ item }}</li>
+</ul>
+
+ <slot name="header"></slot>
+ <h1>===================</h1>
+    <slot name="content"></slot>
+
 </template>
 
 <script>
-import deeppage from "./deeppage.vue";
+
 export default {
-  components: { deeppage },
-  props: {
-    innerMsg: String,
-    innerBooks: {
-      type: [String, Object],
-    },
-    innerArr: {
-      tpye: [String, Array],
-    },
+ 
+  methods: {
+
+    emittext() {
+      this.$emit('child_text',"no world")
+    }
   },
   data() {
-    return {
-      msg2: "child!",
-    };
+    
   },
-  methods: {},
+  props:['innercount','innertext','innerdata']
 };
 </script>

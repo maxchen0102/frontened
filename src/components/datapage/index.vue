@@ -1,21 +1,35 @@
 <template>
-  <button @click="change(flag)" type="button" class="btn btn-danger">
-    改變
-  </button>
-  <ul v-if="flag">
-    <li v-for="item in arr">{{ item }}</li>
-  </ul>
-  外層訊息{{ msg }}
-  <br />
-  ===========================================================
-  <br />
-  {{ msg2 }}
-  <innerpage> {{ msg2 }} </innerpage>
-  <innerpage>
-    <template v-slot:a> I am injected content </template>
-  </innerpage>
-  <template> I am injected content </template>
+<h1>{{ count  }}</h1>
+<button @click="add">add </button>
+<div v-if="warring"> Too high</div>
+
+<h3>below is inner page data </h3>
+<innerpage
+ :innercount="count"
+ :innertext="text"
+ :innerdata="car_data"
+ @child_text="handle_text">
+
+<template v-slot:header>
+<h1>header</h1>
 </template>
+
+<template v-slot:content>
+  <h1>content</h1>
+</template>
+</innerpage>
+
+
+<input type="text" v-model="score"
+  :min="1"
+  :max="999">
+score {{score  }}
+
+ <h4>come from child </h4>
+{{child_text2}}
+
+</template>
+
 
 <script>
 import innerpage from "./innerpage.vue";
@@ -23,44 +37,29 @@ export default {
   components: {
     innerpage,
   },
-  provide() {
-    return {
-      provideMsg: this.msg,
-      //provideMsg2: computed(() => this.msg),
-    };
-  },
 
   data() {
     return {
-      a: 1234,
-      score: 0,
-      score2: 0,
-      total: 0,
-      flag: true,
-      arr: ["chris", "max", "bob"],
-      msg: "hello",
-      msg2: "Parent !",
-      books: [
-        {
-          id: 123,
-          name: "magic",
-          author: "chris",
-        },
-        {
-          id: 2,
-          name: "economic",
-          author: "max",
-        },
-      ],
+      count: 0,
+      warring: false,
+      text: "hello",
+      car_data: ["1", "2", "3"],
+      child_text2: "",
+      score:1
     };
   },
   methods: {
-    cal(score, score2) {
-      this.total = score + score2;
+
+    add() {
+      this.count += 1 
+      if (this.count > 5) {
+        this.warring=true
+      }
+      
     },
-    change(flag) {
-      this.flag = !flag;
-    },
+    handle_text(child_text) {
+      this.child_text2=child_text
+    }
   },
   created(){
 

@@ -35,6 +35,11 @@
                 >資料測試</router-link
               >
             </li>
+             <li class="nav-item">
+              <router-link class="nav-link active" to="/form"
+                >表單填寫</router-link
+              >
+            </li>
           </ul>
         </div>
       </div>
