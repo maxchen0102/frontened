@@ -14,11 +14,16 @@
       </div>
     </div>
   </main>
+  <h1>test</h1>
+<button @click="fetchItems">get </button>
+{{ items }}
 </template>
 
 <script>
 import home_word from "./home_word.vue";
 import home_card from "./home_card.vue";
+import axios from 'axios';
+
 export default {
   name: "home",
   components: {
@@ -40,22 +45,28 @@ export default {
       checked: [],
       count: 0,
       pages: 5,
+      api: "http://127.0.0.1:8090/api/product",
+       items: [],
+      
     };
   },
   methods: {
     plus: function () {
       this.count += 1;
     },
-    signout() {
-      const api = "https://vue-course-api.hexschool.io/logout";
-      const vm = this;
-      this.$http.post(api).then((response) => {
-        console.log(response.data);
-        if (response.data.success) {
-          vm.$router.push("/login");
-        }
+    fetchItems() {
+    console.log("ok")
+    axios.get(this.api)
+      .then(response => {
+        this.items = response.data;
+      })
+      .catch(error => {
+        console.error('Error fetching items:', error);
       });
-    },
+   },
+  print() {
+    console.log("ok")
+  }
   },
 };
 </script>
