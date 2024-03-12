@@ -45,7 +45,7 @@ export default {
       checked: [],
       count: 0,
       pages: 5,
-      api: "http://127.0.0.1:8090/api/product",
+      api: "http://127.0.0.1:8000/api/product",
        items: [],
       
     };

@@ -9,7 +9,7 @@ import typeA from "@/components/pages/typeA";
 import typeB from "@/components/pages/typeB";
 import typeC from "@/components/pages/typeC";
 import index from "@/components/datapage";
-//import form from "@/components/form/form.vue";
+import form from "@/components/form/form.vue";
 
 
 
@@ -22,6 +22,13 @@ const routes = [
     name: "首頁",
     path: "/home",
     component: Home,
+    meta: { requiresAuth: false },
+    children: [],
+  },
+   {
+    name: "form",
+    path: "/form",
+    component: form,
     meta: { requiresAuth: false },
     children: [],
   },
