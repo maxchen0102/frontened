@@ -20,7 +20,6 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
-
 import Banner from "./components/Banner.vue";
 import Quote from "./components/Quote.vue";
 import Footer from "./components/Footer.vue";
