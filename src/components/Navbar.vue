@@ -40,6 +40,11 @@
                 >表單填寫</router-link
               >
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link active" to="/emit"
+                >Emit</router-link
+              >
+            </li>
           </ul>
         </div>
       </div>
