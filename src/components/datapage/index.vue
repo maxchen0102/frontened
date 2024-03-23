@@ -13,12 +13,12 @@ import mitt from 'mitt';
 const emitter = mitt();
 import { provide } from "vue";
 import innerpage from "./innerpage.vue";
-import part from "./part.vue";
+
 
 export default {
   components: {
     innerpage,
-    part,
+
   },
   setup() {
  

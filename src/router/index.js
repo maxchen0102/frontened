@@ -10,7 +10,7 @@ import typeB from "@/components/pages/typeB";
 import typeC from "@/components/pages/typeC";
 import index from "@/components/datapage";
 import form from "@/components/form/form.vue";
-import emit from "@/components/emit/emit.vue";
+
 
 
 const routes = [
@@ -25,14 +25,7 @@ const routes = [
     meta: { requiresAuth: false },
     children: [],
   },
-  {
-    name: "emit",
-    path: "/emit",
-    component: emit,
-    meta: { requiresAuth: false },
-    children: [],
-
-  },
+ 
    {
     name: "form",
     path: "/form",
