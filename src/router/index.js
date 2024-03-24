@@ -25,7 +25,6 @@ const routes = [
     meta: { requiresAuth: false },
     children: [],
   },
- 
    {
     name: "form",
     path: "/form",
