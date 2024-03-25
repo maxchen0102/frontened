@@ -1,7 +1,11 @@
 <template>
   <Navbar></Navbar>
-  <Card></Card>
-  <div class="container">
+  
+
+
+  <!--component render place -->
+
+    <div class="container">
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4">
@@ -10,15 +14,19 @@
       <div class="col-4"></div>
     </div>
   </div>
-
-  <!--component render place -->
   <h5>以下為main router view</h5>
+
+
+
+
   <router-view></router-view>
 
   <Footer></Footer>
 </template>
 
 <script>
+import axios from 'axios'
+
 import Navbar from "./components/Navbar.vue";
 import Banner from "./components/Banner.vue";
 import Footer from "./components/Footer.vue";
@@ -35,11 +43,20 @@ export default {
   data() {
     return {
       path: process.env.VUE_APP_APIPATH,
+      
 
     };
   },
+  mounted()
+  {
+    
+  },
 
-  created() {},
+  methods:{
+     
+
+    
+  }
 };
 </script>
 
