@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 //import Home from "@/components/HelloWorld";
 import Home from "@/components/homepage/home";
+import product from "@/components/homepage/product";
 
 import Dashboard from "@/components/productPage/Dashboard";
 import Products from "@/components/productPage/products";
@@ -31,6 +32,11 @@ const routes = [
     component: form,
     meta: { requiresAuth: false },
     children: [],
+  },
+   {
+    path: '/:category_slug/:product_slug',
+    name: 'product',
+    component: product
   },
   
   {

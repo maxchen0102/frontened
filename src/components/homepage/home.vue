@@ -21,7 +21,11 @@
             <div class="card-body">
               <h3 class="card-title">{{ product.name }}</h3>
               <p class="card-text">${{ product.price }}</p>
-              <a href="#" class="btn btn-info">View Details</a>
+              
+              <router-link v-bind:to="product.get_absolute_url">
+              <button type="button" class="btn btn-danger">商品詳情</button>
+              </router-link>
+
             </div>
           </div>
         </div>
