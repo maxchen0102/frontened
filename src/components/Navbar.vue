@@ -51,7 +51,8 @@
            <ul class="navbar-nav ms-auto text-end">
               <li class="nav-item">
               <router-link class="nav-link active" to="/emit"
-                >購物車
+                ><span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Cart ({{ cartTotalLength }})</span>
                 </router-link
               >
             </li>
@@ -69,13 +70,30 @@
 export default {
   data() {
     return {
-      navbarOpen: true // Initially open
+      navbarOpen: true, // Initially open
+      cart: {
+        items:[]
+      }
     };
+  },
+  beforeCreate() {
+    this.$store.commit('initializeStore')
   },
   methods: {
     toggleNavbar() {
       this.navbarOpen = !this.navbarOpen;
     }
+  },
+   computed: {
+      cartTotalLength() {
+          let totalLength = 0
+
+          for (let i = 0; i < this.cart.items.length; i++) {
+              totalLength += this.cart.items[i].quantity
+          }
+
+          return totalLength
+      }
   }
 };
 </script>
