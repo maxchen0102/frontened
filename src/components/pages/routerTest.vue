@@ -1,20 +1,27 @@
 <template>
-  <h3>This is routerTest</h3>
-  <RouterView></RouterView>
-  <RouterLink to="/router_test/typeA">
-    <button type="button" class="btn btn-success">去typeA</button>
-  </RouterLink>
-  <br />
-  <br />
-  <RouterLink to="/router_test/typeB"
-    ><button type="button" class="btn btn-danger">去typeB</button>
-  </RouterLink>
-  <br />
-  <br />
+  <div>
+    <p>Count: {{ count2 }}</p>
+    <span>{{$store.state.count}}</span>
+     <button @click="incrementCount">Increment</button>
+  </div>
 </template>
 
 <script>
-export default {};
-</script>
+import { useStore } from 'vuex';
 
-<style></style>
+export default {
+  setup() {
+    const store = useStore();
+    const count2=store.state.count;
+    console.log(store) 
+
+     const incrementCount = () => {
+      store.commit('increment');
+    };
+    return {
+      count2,
+      incrementCount,
+    };
+  }
+};
+</script>

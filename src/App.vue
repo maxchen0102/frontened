@@ -18,7 +18,6 @@
 
 
 
-
   <router-view></router-view>
 
   <Footer></Footer>
@@ -43,10 +42,11 @@ export default {
   data() {
     return {
       path: process.env.VUE_APP_APIPATH,
-      
+  
 
-    };
+    }
   },
+
   mounted()
   {
     
