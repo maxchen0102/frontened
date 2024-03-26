@@ -18,9 +18,6 @@
 <script>
 import axios from 'axios'
 import ProductBox from '@/components/homepage/productBox'
-
-
-
 export default {
     name: 'Category',
     components: {
@@ -60,9 +57,7 @@ export default {
                 .catch(error => {
                     console.log(error)
 
-                
                 })
-
             this.$store.commit('setIsLoading', false)
         }
     }

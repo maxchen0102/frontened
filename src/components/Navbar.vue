@@ -55,12 +55,11 @@
             </li>
           </ul>
 
-           
-             
+
            <ul class="navbar-nav ms-auto text-end">
              
               <li class="nav-item">
-              <router-link class="nav-link active" to="/emit"
+              <router-link class="nav-link active" to="/cart"
                 ><span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{ cartTotalLength }})</span>
                 </router-link
