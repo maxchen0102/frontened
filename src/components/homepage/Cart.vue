@@ -22,7 +22,7 @@
                             v-for="item in cart.items"
                             v-bind:key="item.product.id"
                             v-bind:initialItem="item"
-                            v-on:removeFromCartIn="removeFromCart"/>
+                            v-on:removeFromCart="removeFromCart"/>
                     </tbody>
                 </table>
 
@@ -31,12 +31,9 @@
 
             <div class="column is-12 box">
                 <h2 class="subtitle">Summary</h2>
-
                 <strong>${{ cartTotalPrice.toFixed(2) }}</strong>, {{ cartTotalLength }} items
-
                 <hr>
-
-                <router-link to="/cart/checkout" class="button is-dark">Proceed to checkout</router-link>
+                <router-link to="/cart/checkout" class="button is-dark">前往結帳頁</router-link>
             </div>
         </div>
     </div>
@@ -59,7 +56,7 @@ export default {
         }
     },
     mounted() {
-        this.cart = this.$store.state.cart
+        this.cart = this.$store.state.cart // get cart 
     },
     methods: {
         removeFromCart(item) {
@@ -67,11 +64,13 @@ export default {
         }
     },
     computed: {
-        cartTotalLength() {
+        // 計算購物車商品長度
+        cartTotalLength() {  
             return this.cart.items.reduce((acc, curVal) => {
                 return acc += curVal.quantity
             }, 0)
         },
+        // 計算購物車商品總價
         cartTotalPrice() {
             return this.cart.items.reduce((acc, curVal) => {
                 return acc += curVal.product.price * curVal.quantity

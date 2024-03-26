@@ -39,32 +39,19 @@
             </div>
 
             <div class="column is-12 box">
-                <h2 class="subtitle">Shipping details</h2>
+                <h2 class="subtitle">個人資料</h2>
 
                 <p class="has-text-grey mb-4">* All fields are required</p>
 
                 <div class="columns is-multiline">
                     <div class="column is-6">
                         <div class="field">
-                            <label>First name*</label>
+                            <label>name*</label>
                             <div class="control">
                                 <input type="text" class="input" v-model="first_name">
                             </div>
                         </div>
 
-                        <div class="field">
-                            <label>Last name*</label>
-                            <div class="control">
-                                <input type="text" class="input" v-model="last_name">
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>E-mail*</label>
-                            <div class="control">
-                                <input type="email" class="input" v-model="email">
-                            </div>
-                        </div>
 
                         <div class="field">
                             <label>Phone*</label>
@@ -72,29 +59,9 @@
                                 <input type="text" class="input" v-model="phone">
                             </div>
                         </div>
-                    </div>
+                
 
-                    <div class="column is-6">
-                        <div class="field">
-                            <label>Address*</label>
-                            <div class="control">
-                                <input type="text" class="input" v-model="address">
-                            </div>
-                        </div>
 
-                        <div class="field">
-                            <label>Zip code*</label>
-                            <div class="control">
-                                <input type="text" class="input" v-model="zipcode">
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>Place*</label>
-                            <div class="control">
-                                <input type="text" class="input" v-model="place">
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -126,15 +93,10 @@ export default {
             cart: {
                 items: []
             },
-            stripe: {},
             card: {},
-            first_name: '',
-            last_name: '',
-            email: '',
+            name: '',
             phone: '',
-            address: '',
-            zipcode: '',
-            place: '',
+
             errors: []
         }
     },
