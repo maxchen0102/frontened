@@ -16,11 +16,11 @@
 export default {
     name: 'CartItem',
     props: {
-        initialItem: Object
+        initialItem: Object  // from Cart 
     },
     data() {
         return {
-            item: this.initialItem
+            item: this.initialItem  // pros 進來initialItem to item 
         }
     },
     methods: {
@@ -29,9 +29,8 @@ export default {
         },
         decrementQuantity(item) {
             item.quantity -= 1
-
             if (item.quantity === 0) {
-                this.$emit('removeFromCartIn', item)
+                this.$emit('removeFromCart', item)
             }
 
             this.updateCart()
@@ -45,7 +44,7 @@ export default {
             localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
         },
         removeFromCart(item) {
-            this.$emit('removeFromCartIn', item)
+            this.$emit('removeFromCart', item)  // 回導到Cart 
 
             this.updateCart()
         },

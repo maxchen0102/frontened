@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/components/homepage/home";
 import product from "@/components/homepage/product";
 import Cart from "@/components/homepage/Cart";
+import Checkout from "@/components/homepage/Checkout";
+import Success from "@/components/homepage/Success.vue";
 
 import Dashboard from "@/components/productPage/Dashboard";
 import Products from "@/components/productPage/products";
@@ -43,6 +45,16 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart
+  },
+   {
+    path: '/cart/success',
+    name: 'Success',
+    component: Success
+  },
+      {
+    path: '/cart/checkout',
+    name: 'Checkout',
+    component: Checkout
   },
     {
     path: '/:category_slug',
