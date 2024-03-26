@@ -46,9 +46,19 @@
                 >Emit</router-link
               >
             </li>
+             <li class="nav-item">
+              <router-link to="/summer" class="nav-link active">Summer</router-link>
+              >
+            </li>
+             <li class="nav-item">
+             <router-link to="/winter" class="nav-link active">Winter</router-link>
+            </li>
           </ul>
 
+           
+             
            <ul class="navbar-nav ms-auto text-end">
+             
               <li class="nav-item">
               <router-link class="nav-link active" to="/emit"
                 ><span class="icon"><i class="fas fa-shopping-cart"></i></span>

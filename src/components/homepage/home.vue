@@ -14,22 +14,10 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-3" v-for="product in latestProducts" :key="product.id">
-          <div class="card mb-4">
-            <img :src="product.get_thumbnail" class="card-img-top product-image" alt="Product Image"> <!-- Added product-image class -->
-            <div class="card-body">
-              <h3 class="card-title">{{ product.name }}</h3>
-              <p class="card-text">${{ product.price }}</p>
-              
-              <router-link v-bind:to="product.get_absolute_url">
-              <button type="button" class="btn btn-danger">商品詳情</button>
-              </router-link>
-
-            </div>
-          </div>
-        </div>
-      </div>
+ <ProductBox 
+        v-for="product in latestProducts"
+        v-bind:key="product.id"
+        v-bind:product="product" />
     </div>
   </div>
 </template>
@@ -38,11 +26,13 @@
 <script>
 
 import axios from 'axios';
+import ProductBox from '@/components/homepage/productBox'
+
 
 export default {
   name: "home",
   components: {
-
+    ProductBox
   },
   props: {
     msg: String,
@@ -54,6 +44,7 @@ export default {
   },
   mounted() {
     this.getLatestProducts();
+    document.title="home"
   },
   methods: {
    getLatestProducts() {
