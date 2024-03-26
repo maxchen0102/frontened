@@ -11,7 +11,7 @@ import typeB from "@/components/pages/typeB";
 import typeC from "@/components/pages/typeC";
 import index from "@/components/datapage";
 import form from "@/components/form/form.vue";
-
+import Category from "@/components/homepage/Category.vue";
 
 
 const routes = [
@@ -38,7 +38,11 @@ const routes = [
     name: 'product',
     component: product
   },
-  
+    {
+    path: '/:category_slug',
+    name: 'Category',
+    component: Category
+  },
   {
     name: "Dashboard",
     path: "/Dashboard",
