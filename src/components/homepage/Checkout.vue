@@ -30,7 +30,7 @@
 
                     <tfoot>
                         <tr>
-                            <td colspan="2">Total</td>
+                            <td colspan="2">總金額</td>
                             <td>{{ cartTotalLength }}</td>
                             <td>${{ cartTotalPrice.toFixed(2) }}</td>
                         </tr>
@@ -48,7 +48,7 @@
                         <div class="field">
                             <label>name*</label>
                             <div class="control">
-                                <input type="text" class="input" v-model="first_name">
+                                <input type="text" class="input" v-model="name">
                             </div>
                         </div>
 
@@ -76,7 +76,7 @@
                 <template v-if="cartTotalLength">
                     <hr>
 
-                    <button class="button is-dark" @click="submitForm">Pay with Stripe</button>
+                    <button class="button is-dark" @click="checkout_fill_data">Pay with Stripe</button>
                 </template>
             </div>
         </div>
@@ -96,8 +96,8 @@ export default {
             card: {},
             name: '',
             phone: '',
-
-            errors: []
+            errors: [],
+            payload:{}
         }
     },
     mounted() {
@@ -117,93 +117,62 @@ export default {
         getItemTotal(item) {
             return item.quantity * item.product.price
         },
-        submitForm() {
+
+        checkout_fill_data() {
             this.errors = []
 
-            if (this.first_name === '') {
-                this.errors.push('The first name field is missing!')
-            }
-
-            if (this.last_name === '') {
-                this.errors.push('The last name field is missing!')
-            }
-
-            if (this.email === '') {
-                this.errors.push('The email field is missing!')
+            if (this.name === '') {
+                this.errors.push('The name field is missing!')
             }
 
             if (this.phone === '') {
                 this.errors.push('The phone field is missing!')
             }
 
-            if (this.address === '') {
-                this.errors.push('The address field is missing!')
-            }
-
-            if (this.zipcode === '') {
-                this.errors.push('The zip code field is missing!')
-            }
-
-            if (this.place === '') {
-                this.errors.push('The place field is missing!')
-            }
-
             if (!this.errors.length) {
-                // this.$store.commit('setIsLoading', true)
-
-                // this.createToken(this.card).then(result => {                    
-                //     if (result.error) {
-                //         this.$store.commit('setIsLoading', false)
-
-                //         this.errors.push('Something went wrong with Stripe. Please try again')
-
-                //         console.log(result.error.message)
-                //     } else {
-                //         this.stripeTokenHandler(result.token)
-                //     }
-                // })
-            }
-        },
-        async stripeTokenHandler(token) {
-            const items = []
-
-            for (let i = 0; i < this.cart.items.length; i++) {
-                const item = this.cart.items[i]
-                const obj = {
-                    product: item.product.id,
-                    quantity: item.quantity,
-                    price: item.product.price * item.quantity
+                // 欄位都填好了->組訂單資料
+                const items=[]
+                for (let i = 0; i < this.cart.items.length; i++) {
+                    const item = this.cart.items[i]
+                    const obj = {
+                        product: item.product.id,
+                        quantity: item.quantity,
+                        price: item.product.price * item.quantity
+                    }
+                    items.push(obj)
                 }
+                
 
-                items.push(obj)
+                this.payload = {
+                    'name': this.name,
+                    'phone': this.phone,
+                    'items':items,
+                }
+               
+                this.submitForm(this.payload)
             }
-
-            const data = {
-                'first_name': this.first_name,
-                'last_name': this.last_name,
-                'email': this.email,
-                'address': this.address,
-                'zipcode': this.zipcode,
-                'place': this.place,
-                'phone': this.phone,
-                'items': items,
-                'stripe_token': token.id
-            }
+            
+        },
+        async submitForm() {
+            this.$store.commit('setIsLoading', true)
+            console.log("結帳頁送出payload= ",this.payload) // 測試用
 
             await axios
-                .post('/api/v1/checkout/', data)
-                .then(response => {
-                    this.$store.commit('clearCart')
-                    this.$router.push('/cart/success')
-                })
-                .catch(error => {
-                    this.errors.push('Something went wrong. Please try again')
+                    .post('/api/v1/checkout/', this.payload)
+                    .then(response => {
+                        this.$store.commit('clearCart')
+                        this.$router.push('/cart/success')
+                    })
+                    .catch(error => {
+                        this.errors.push('Something went wrong. Please try again')
 
-                    console.log(error)
-                })
+                        console.log(error)
+                    })
 
-                this.$store.commit('setIsLoading', false)
-        }
+                    this.$store.commit('setIsLoading', false)
+        },
+
+   
     },
     computed: {
         cartTotalPrice() {
