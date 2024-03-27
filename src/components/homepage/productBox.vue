@@ -1,6 +1,6 @@
 <template>
     <div class="column is-3">
-        <div class="box">
+        <div class="box product-card">
             <figure class="image mb-4">
                 <img v-bind:src="product.get_thumbnail">
             </figure>
@@ -28,4 +28,5 @@ export default {
     margin-left: -1.25rem;
     margin-right: -1.25rem;
   }
+  
 </style>

@@ -60,7 +60,8 @@ export default {
     },
     methods: {
         removeFromCart(item) {
-            this.cart.items = this.cart.items.filter(i => i.product.id !== item.product.id)
+            //過濾掉 id 的item  
+            this.cart.items = this.cart.items.filter(i => i.product.id !== item.product.id) 
         }
     },
     computed: {
