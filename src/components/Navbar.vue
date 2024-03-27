@@ -14,6 +14,8 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
+
         <div :class="{'collapse': !navbarOpen, 'navbar-collapse': true}" id="navbarNav">
           <!-- Navbar content -->
                 <ul class="navbar-nav">
@@ -56,14 +58,14 @@
           </ul>
 
 
-           <ul class="navbar-nav ms-auto text-end">
+           <ul class="navbar-end">
              
+            
               <li class="nav-item">
-              <router-link class="nav-link active" to="/cart"
-                ><span class="icon"><i class="fas fa-shopping-cart"></i></span>
+              <router-link to="/cart" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{ cartTotalLength }})</span>
-                </router-link
-              >
+              </router-link>
             </li>
           </ul>
         
@@ -71,10 +73,17 @@
       </div>
     </nav>
 
+   
+
+
+
         <div class="is-loading-bar has-text-centered" v-bind:class="{'is-loading': $store.state.isLoading }">
       <div class="lds-dual-ring"></div>
     </div>
   </div>
+
+
+
 
 
 </template>

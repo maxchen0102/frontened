@@ -14,11 +14,19 @@
         </div>
       </div>
 
- <ProductBox 
-        v-for="product in latestProducts"
-        v-bind:key="product.id"
-        v-bind:product="product" />
-    </div>
+ <div class="columns is-multiline">
+        <ProductBox
+          v-for="product in latestProducts"
+          v-bind:key="product.id"
+          v-bind:product="product"
+          class="column is-3" 
+        />
+      </div>
+
+    
+    
+    
+      </div>
   </div>
 </template>
 
@@ -65,5 +73,10 @@ export default {
 .product-image {
   height: 200px; /* Set the height to the desired size */
   object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+}
+
+.product-card {
+  width: 100%; /* Set the width of each card */
+  margin-bottom: 20px; /* Add some bottom margin for spacing between cards */
 }
 </style>
