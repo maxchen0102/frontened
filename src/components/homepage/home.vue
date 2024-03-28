@@ -14,6 +14,7 @@
         </div>
       </div>
 <br>
+<br>
  <div class="columns is-multiline">
         <ProductBox
           v-for="product in latestProducts"
