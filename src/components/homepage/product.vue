@@ -2,19 +2,23 @@
     <div class="page-product">
         <div class="columns is-multiline">
             <div class="column is-9">
+                <h1 class="title">{{ product.name }}</h1>
                <figure class="image mb-6">
                     <img v-bind:src="product.get_image" style="width: 1000px; height: 500px;">
                 </figure>
 
-                <h1 class="title">{{ product.name }}</h1>
-
+                
+                <h2 class="title" >介紹</h2>
                 <p>{{ product.description }}</p>
             </div>
 
             <div class="column is-3">
-                <h2 class="subtitle">Information</h2>
-
-                <p><strong>Price: </strong>${{ product.price }}</p>
+               
+                <br>
+                <br>
+                <br>
+                 <h2 class="title">售價 ${{ product.price }}</h2>
+               
 
                 <div class="field has-addons mt-6">
                     <div class="control">

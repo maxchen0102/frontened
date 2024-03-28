@@ -14,9 +14,6 @@
       <div class="col-4"></div>
     </div>
   </div>
-  <h5>以下為main router view</h5>
-
-
 
   <router-view></router-view>
 

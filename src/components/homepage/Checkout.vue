@@ -40,7 +40,7 @@
 
             <div class="column is-12 box">
                 <h2 class="subtitle">個人資料</h2>
-
+                
                 <p class="has-text-grey mb-4">* All fields are required</p>
 
                 <div class="columns is-multiline">
@@ -97,6 +97,7 @@ export default {
             name: '',
             phone: '',
             errors: [],
+            totalPrice:0,
             payload:{}
         }
     },
@@ -104,7 +105,7 @@ export default {
         document.title = 'Checkout | Djackets'
 
         this.cart = this.$store.state.cart
-
+        
         // if (this.cartTotalLength > 0) {
         //     this.stripe = Stripe('pk_test_51H1HiuKBJV2qfWbD2gQe6aqanfw6Eyul5PO2KeOuSRlUMuaV4TxEtaQyzr9DbLITSZweL7XjK3p74swcGYrE2qEX00Hz7GmhMI')
         //     const elements = this.stripe.elements();
@@ -113,6 +114,7 @@ export default {
         //     this.card.mount('#card-element')
         // }
     },
+    
     methods: {
         getItemTotal(item) {
             return item.quantity * item.product.price
@@ -146,7 +148,8 @@ export default {
                 this.payload = {
                     'name': this.name,
                     'phone': this.phone,
-                    'items':items,
+                    'items': items,
+                    'totalPrice':this.totalPrice,
                 }
                
                 this.submitForm(this.payload)
@@ -155,8 +158,8 @@ export default {
         },
         async submitForm() {
             this.$store.commit('setIsLoading', true)
-            console.log("結帳頁送出payload= ",this.payload) // 測試用
-
+            console.log("結帳頁送出payload= ",this.payload,"total_price=",this.totalPrice) // 測試用
+            
             await axios
                     .post('/api/v1/checkout/', this.payload)
                     .then(response => {
@@ -171,13 +174,13 @@ export default {
 
                     this.$store.commit('setIsLoading', false)
         },
-
-   
     },
     computed: {
         cartTotalPrice() {
             return this.cart.items.reduce((acc, curVal) => {
-                return acc += curVal.product.price * curVal.quantity
+                this.totalPrice += curVal.product.price * curVal.quantity
+                
+                return this.totalPrice
             }, 0)
         },
         cartTotalLength() {
