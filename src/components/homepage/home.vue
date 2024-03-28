@@ -13,7 +13,8 @@
           <h2 class="is-size-2">Latest products</h2>
         </div>
       </div>
-            <br>
+<br>
+<br>
  <div class="columns is-multiline">
         <ProductBox
           v-for="product in latestProducts"
