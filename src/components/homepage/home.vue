@@ -13,8 +13,7 @@
           <h2 class="is-size-2">Latest products</h2>
         </div>
       </div>
-<br>
-<br>
+            <br>
  <div class="columns is-multiline">
         <ProductBox
           v-for="product in latestProducts"
@@ -23,7 +22,7 @@
           class="column is-3" 
         />
       </div>
-
+<br>
     
     
     
@@ -81,3 +80,4 @@ export default {
   margin-bottom: 20px; /* Add some bottom margin for spacing between cards */
 }
 </style>
+
